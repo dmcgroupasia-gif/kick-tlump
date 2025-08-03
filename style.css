@@ -386,19 +386,6 @@ header {
   padding: 3rem 1rem;
 }
 
-@media (max-width: 768px) {
-  .meme-content {
-    font-size: 1rem; /* Ukuran lebih kecil untuk layar kecil */
-  }
-}
-
-@media (max-width: 480px) {
-  .meme-content {
-    font-size: 0.8rem; /* Ukuran lebih kecil lagi untuk layar sangat kecil */
-  }
-}
-
-
 /* Fullscreen Video */
 .background-video {
   position: absolute;
@@ -431,6 +418,18 @@ header {
   padding: 2rem;
   color: white;
   text-shadow: 0 0 4px #000000, 0 0 8px #000000;
+}
+
+@media (max-width: 768px) {
+  .meme-content {
+    font-size: 0.8rem; /* Ukuran lebih kecil untuk layar kecil */
+  }
+}
+
+@media (max-width: 480px) {
+  .meme-content {
+    font-size: 0.6rem; /* Ukuran lebih kecil lagi untuk layar sangat kecil */
+  }
 }
 
 /* Floating Animation */
@@ -545,6 +544,7 @@ footer a {
     padding: 0.6rem 1rem;
   }
 }
+
 
 
 
