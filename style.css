@@ -1,0 +1,530 @@
+/* styles.css */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Scroll & Font Settings */
+html, body {
+  scroll-behavior: smooth;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+body {
+  background-color: #fff7e6;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 8px solid #fcd34d;
+  border-top: 8px solid #10b981;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Navbar */
+header {
+  position: sticky;
+  top: 0;
+  background: #fcd34d65;
+  padding: 1rem;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #020202;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-text {
+  font-family: 'Arial Black', sans-serif;
+  text-shadow: 0 0 5px #fafafa;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #f803ec;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1100;
+}
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #000;
+  margin: 4px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 1rem;
+    background: #ffecb3;
+    border-radius: 15px;
+    flex-direction: column;
+    width: 220px;
+    display: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease forwards;
+    padding: 1rem;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Banner */
+.banner {
+  background: #ff90b3;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 1rem 0;
+}
+.scroll-text {
+  display: inline-block;
+  animation: scroll-left 25s linear infinite;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #000000;
+}
+@keyframes scroll-left {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+/* Home Section */
+.home {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
+.floating-logo {
+  width: 200px;         /* perbesar logo di sini */
+  max-width: 100%;       /* agar tetap responsif di layar kecil */
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .floating-logo {
+    width: 200px !important;
+    max-width: 100% !important;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.home-text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 800px;
+}
+
+.home-text h1 {
+  font-size: 2.5rem;
+  color: #000000;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+}
+
+.home-text h3 {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: #ffffff;
+  padding: 0 1rem;
+  text-shadow: 0 0 4px #000000, 0 0 8px #000000, 0 0 12px #000000;
+}
+
+.buy-button {
+  background: #e00a75;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  transition: background 0.3s;
+  display: inline-block;
+  max-width: 90%;
+}
+.buy-button:hover {
+  background: #f70707;
+  text-shadow: 0 0 5px #d400ff, 0 0 10px #d400ff, 0 0 20px #d400ff;
+}
+.cta-text {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: #ffffff;
+  padding: 0 1rem;
+  margin-top: 1.5rem; /* Menurunkan posisi ke bawah */
+  text-shadow: 0 0 4px #000000, 0 0 8px #000000, 0 0 12px #000000;
+}
+
+
+/* Tokenomics */
+.tokenomics {
+  background: #eed7e0 url("assets/tokenomics-bg.png") no-repeat center center;
+  padding: 3rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tokenomics .info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 800px;
+}
+
+.tokenomics .info {
+  background: #fff;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.3s ease;
+  min-width: 200px;
+  flex: 1 1 200px;
+}
+
+.tokenomics .info:hover {
+  background: #ffc1e3;
+  transform: translateY(-5px);
+}
+
+
+/* Visi Misi */
+.vision {
+  padding: 3rem 2rem;
+  background: #fef9c3;
+  text-align: center;
+}
+
+#vision {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Sepatu animasi */
+.flying-shoes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shoe {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.7;
+  animation: floatShoe 10s linear infinite;
+}
+
+/* Sepatu muncul di posisi acak + delay berbeda */
+.shoe:nth-child(1) { left: 80%; animation-delay: 4s; }
+.shoe:nth-child(2) { left: 20%; animation-delay: 0s; }
+.shoe:nth-child(3) { left: 50%; animation-delay: 6s; }
+.shoe:nth-child(4) { left: 10%; animation-delay: 2s; }
+.shoe:nth-child(5) { left: 90%; animation-delay: 8s; }
+.shoe:nth-child(6) { left: 40%; animation-delay: 1s; }
+.shoe:nth-child(7) { left: 70%; animation-delay: 7s; }
+.shoe:nth-child(8) { left: 30%; animation-delay: 3s; }
+.shoe:nth-child(9) { left: 100%; animation-delay: 9s; }
+.shoe:nth-child(10) { left: 60%; animation-delay: 5s; }
+
+@keyframes floatShoe {
+  0% {
+    top: 110%;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    top: -10%;
+    transform: translateY(-100%) rotate(360deg);
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.card {
+  background: #fff;
+  padding: 2rem;
+  width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: perspective(800px) rotateY(0);
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: perspective(800px) rotateY(10deg);
+}
+
+/* Meme Section */
+.meme {
+  position: relative;
+  color: #000000;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+  font-size: 3rem;
+  text-align: center;
+  overflow: hidden;
+  min-height: 100dvh; /* menggunakan viewport dinamis untuk mobile */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+/* Fullscreen Video */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh; /* gunakan 100dvh agar adaptif di mobile viewport */
+  object-fit: cover;
+  z-index: -1;
+}
+
+@supports not (height: 100dvh) {
+  .meme {
+    min-height: 100vh;
+  }
+
+  .background-video {
+    height: 100vh;
+  }
+}
+
+/* Konten Meme */
+.meme-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: float 4s ease-in-out infinite;
+  font-size: 1.8rem;
+  z-index: 1; /* Pastikan kontennya di atas video */
+  padding: 2rem;
+  color: white;
+  text-shadow: 0 0 4px #000000, 0 0 8px #000000;
+}
+
+/* Floating Animation */
+.meme-floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Roadmap */
+.roadmap {
+  background: #1bb34b2c url('assets/roadmap.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #222;
+  position: relative;
+  z-index: 1;
+}
+
+.roadmap::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: -1;
+}
+
+.roadmap h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.roadmap-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.roadmap-card {
+  background: rgba(255, 255, 255, 0.445);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 500px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roadmap-card:hover {
+  transform: translateY(-10px);
+  background: #c8f7e0;
+}
+
+.roadmap-card .emoji {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.roadmap-card p {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+footer {
+  background: #f39b9b url("assets/footer-bg.png") no-repeat center center;
+  background-size: cover;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 1rem;
+}
+
+footer a {
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.x-icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.x-icon:hover {
+  transform: scale(1.2);
+}
+
+.share-icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.share-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .home {
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+  .floating-logo {
+    width: 80px;
+  }
+  .buy-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
