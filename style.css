@@ -286,23 +286,9 @@ header {
   line-height: 1.6;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease, transform 0.3s ease;
-  min-width: 400px;
+  width: 100%;
+  max-width: 400px;
   flex: 1 1 200px;
-}
-
-@media (max-width: 600px) {
-  .tokenomics .info {
-    min-width: auto;
-    width: 100%;
-    font-size: 0.95rem;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .tokenomics {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
 .tokenomics .info:hover {
@@ -310,6 +296,18 @@ header {
   transform: translateY(-5px);
 }
 
+@media (max-width: 600px) {
+  .tokenomics .info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tokenomics .info {
+    font-size: 0.95rem;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+}
 
 /* Visi Misi */
 .vision {
@@ -559,6 +557,7 @@ footer a {
     padding: 0.6rem 1rem;
   }
 }
+
 
 
 
