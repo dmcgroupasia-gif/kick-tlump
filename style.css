@@ -295,6 +295,7 @@ header {
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word;
+  align-items: stretch;
 }
 
 .tokenomics .info:hover {
@@ -306,6 +307,7 @@ header {
   .tokenomics .info-container {
     flex-direction: column;
     align-items: center;
+    padding: 2rem 1rem; /* Kurangi padding */
   }
 
   .tokenomics .info {
@@ -564,6 +566,7 @@ footer a {
     padding: 0.6rem 1rem;
   }
 }
+
 
 
 
