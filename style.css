@@ -290,6 +290,21 @@ header {
   flex: 1 1 200px;
 }
 
+@media (max-width: 600px) {
+  .tokenomics .info {
+    min-width: auto;
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .tokenomics {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .tokenomics .info:hover {
   background: #ffc1e3;
   transform: translateY(-5px);
@@ -544,6 +559,7 @@ footer a {
     padding: 0.6rem 1rem;
   }
 }
+
 
 
 
